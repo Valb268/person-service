@@ -1,8 +1,7 @@
 package telran.java51.person.service;
 
-import java.util.List;
-
 import telran.java51.person.dto.AddressDto;
+import telran.java51.person.dto.CityPopulationDto;
 import telran.java51.person.dto.PersonDto;
 
 public interface PersonService {
@@ -11,15 +10,17 @@ public interface PersonService {
 	
 	PersonDto findPersonById(Integer id);
 	
-	List<PersonDto> findByCity(String city);
+	Iterable<PersonDto> findByCity(String city);
 	
-	List<PersonDto> findByAges(Integer minAge, Integer maxAge);
+	Iterable<PersonDto> findByAges(Integer minAge, Integer maxAge);
 	
 	PersonDto updateName(Integer id, String newName);
 	
-	List<PersonDto> findByName(String name);
+	Iterable<PersonDto> findByName(String name);
 
 	PersonDto updateAddress(Integer id, AddressDto newAddress);
 
 	PersonDto deletePerson(Integer id);
+	
+	Iterable<CityPopulationDto> getCityPopulation();
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import telran.java51.person.dto.AddressDto;
+import telran.java51.person.dto.CityPopulationDto;
 import telran.java51.person.dto.PersonDto;
 import telran.java51.person.service.PersonService;
 
@@ -34,12 +35,12 @@ public class PersonController {
 	}
 	
 	@GetMapping("/city/{city}")
-	public List<PersonDto> findByCity(@PathVariable String city) {
+	public Iterable<PersonDto> findByCity(@PathVariable String city) {
 		return personService.findByCity(city);
 	}
 	
 	@GetMapping("/ages/{minAge}/{maxAge}")
-	public List<PersonDto> findByAges(@PathVariable Integer minAge, @PathVariable Integer maxAge) {
+	public Iterable<PersonDto> findByAges(@PathVariable Integer minAge, @PathVariable Integer maxAge) {
 		return personService.findByAges(minAge, maxAge);
 	}
 	
@@ -49,7 +50,7 @@ public class PersonController {
 	}
 	
 	@GetMapping("/name/{name}")
-	public List<PersonDto> findByName(@PathVariable String name) {
+	public Iterable<PersonDto> findByName(@PathVariable String name) {
 		return personService.findByName(name);
 	}
 	
@@ -61,6 +62,11 @@ public class PersonController {
 	@DeleteMapping("/{id}")
 	public PersonDto deletePerson(@PathVariable Integer id) {
 		return personService.deletePerson(id);
+	}
+	
+	@GetMapping("/population/city")
+	public Iterable<CityPopulationDto> getCitiesPopulation() {
+		return personService.getCityPopulation();
 	}
 	
 }

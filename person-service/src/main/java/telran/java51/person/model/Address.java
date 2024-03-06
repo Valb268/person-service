@@ -2,6 +2,7 @@ package telran.java51.person.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@Embeddable
 public class Address implements Serializable {
 	/**
 	 * 
