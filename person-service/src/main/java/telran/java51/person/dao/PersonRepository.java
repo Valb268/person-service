@@ -18,7 +18,8 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 
 	Stream<Person> findByNameIgnoreCase(String name);
 	
-	@Query("select new telran.java51.person.dto.CityPopulationDto(p.address.city, count(p)) from Person p group by p.address.city order by count(p) desc")
+	@Query("select new telran.java51.person.dto.CityPopulationDto(p.address.city, count(p)) "
+			+ "from Person p group by p.address.city order by count(p) desc")
 	List<CityPopulationDto> getCitiesPopulation();
 
 }

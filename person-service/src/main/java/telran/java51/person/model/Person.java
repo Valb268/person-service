@@ -3,9 +3,10 @@ package telran.java51.person.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -19,6 +20,7 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "persons")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person implements Serializable {
 	/**
 	 * 
