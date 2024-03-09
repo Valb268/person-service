@@ -5,4 +5,5 @@ import lombok.Getter;
 @Getter
 public class ChildDto extends PersonDto {
 	String kindergarten;
+	String type = "child";
 }
