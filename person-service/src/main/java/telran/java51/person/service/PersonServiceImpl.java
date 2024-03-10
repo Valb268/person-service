@@ -66,7 +66,8 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
 	@Override
 	public List<PersonDto> findByCity(String city) {
 		return personRepository.findByAddressCityIgnoreCase(city)
-				.map(p -> personDtoMapper(p)).toList();
+				.map(p -> personDtoMapper(p))
+				.toList();
 	}
 
 	@Transactional(readOnly = true)
@@ -76,7 +77,8 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
 		LocalDate fromDate = now.minusYears(maxAge);
 		LocalDate toDate = now.minusYears(minAge);
 		return personRepository.findByBirthDateBetween(fromDate, toDate)
-				.map(p -> personDtoMapper(p)).toList();
+				.map(p -> personDtoMapper(p))
+				.toList();
 	}
 
 	@Transactional
@@ -93,7 +95,8 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
 	@Override
 	public List<PersonDto> findByName(String name) {
 		return personRepository.findByNameIgnoreCase(name)
-				.map(p -> personDtoMapper(p)).toList();
+				.map(p -> personDtoMapper(p))
+				.toList();
 	}
 
 	@Transactional

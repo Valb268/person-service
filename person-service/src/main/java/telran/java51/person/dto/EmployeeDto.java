@@ -12,5 +12,5 @@ import lombok.Setter;
 public class EmployeeDto extends PersonDto {
 	String company;
 	int salary;
-	String type = "employee";
+//	String type = "employee";
 }
