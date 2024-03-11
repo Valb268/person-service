@@ -24,10 +24,10 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
 			+ "from Person p group by p.address.city order by count(p) desc")
 	List<CityPopulationDto> getCitiesPopulation();
 
-	@Query("select c from Child c")
-	Stream<Child> findAllChildren();
+//	@Query("select c from Child c")
+	Stream<Child> findAllChildrenBy();
 
-	@Query("select e from Employee e where e.salary between ?1 and ?2")
+//	@Query("select e from Employee e where e.salary between ?1 and ?2")
 	Stream<Employee> findEmployeesBySalaryBetween(int minSalary,
 			int maxSalary);
 
